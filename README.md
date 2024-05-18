@@ -17,20 +17,20 @@ This Bash script simplifies the configuration of Gost tunnels with options for b
 
 **Installation:**
 
-![Screenshot-gost](https://raw.githubusercontent.com/masoudgb/Gost-ip6/955933ccb4111291b2cc343a3f55e1fe05c83864/image/Screenshot_20240430_113105.jpg).
+![Screenshot-gost](https://raw.githubusercontent.com/dev-ir/Gost-ip6/955933ccb4111291b2cc343a3f55e1fe05c83864/image/Screenshot_20240430_113105.jpg).
 
 
 
 Clone the repository:
 
 ```bash
-bash <(curl -Ls https://github.com/masoudgb/Gost-ip6/raw/main/Gost.sh)
+bash <(curl -Ls https://github.com/dev-ir/Gost-ip6/raw/main/Gost.sh)
    ```
 
 Custom Version: 
 
 ```bash
-bash <(curl -Ls https://github.com/masoudgb/Gost-ip6/raw/v2.1.7/Gost.sh)
+bash <(curl -Ls https://github.com/dev-ir/Gost-ip6/raw/v2.1.7/Gost.sh)
    ```
 
 Follow the on-screen prompts to configure Gost tunnels according to your preferences.
@@ -67,7 +67,7 @@ The script offers the following options:
 - Run Script Again By "gost" Command
 - Avoid using duplicate ports.
 - Choose port ranges between 54 and 65000 for optimal configuration.
-- Your suggestions for script improvement and enhancement are highly welcomed. Feel free to share your ideas on the [GitHub repository](https://github.com/masoudgb/Gost-ip6/issues).
+- Your suggestions for script improvement and enhancement are highly welcomed. Feel free to share your ideas on the [GitHub repository](https://github.com/dev-ir/Gost-ip6/issues).
 
 
 **Credits:**
