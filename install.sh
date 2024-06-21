@@ -335,7 +335,7 @@ elif [ "$choice" -eq 6 ]; then
             ;;
         2)
             echo $'\e[32mInstalling Gost version 3.0.0, please wait...\e[0m' && \
-            wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20240426/gost_3.0.0-nightly.20240426_linux_amd64.tar.gz
+            wget -O /tmp/gost.tar.gz https://github.com/go-gost/gost/releases/download/v3.0.0-nightly.20240618/gost_3.0.0-nightly.20240618_linux_amd64.tar.gz
     tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
     chmod +x /usr/local/bin/gost
             echo $'\e[32mGost installed successfully.\e[0m'
