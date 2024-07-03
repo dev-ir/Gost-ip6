@@ -6,6 +6,13 @@
 
 This Bash script simplifies the configuration of Gost tunnels with options for both IP4 and IP6 setups. The script presents an interactive menu for user-friendly execution.
 
+## 🙏 Support with Crypto 
+- USDT (TRC20): `TVUqVMoCEe5DVUoxmPg8MwmgcHvZLqLjr4`
+
+## 📧 Join Telegram Channel
+
+TG : https://t.me/+EpErnDsDPhw3ZThk
+
 
 **Prerequisites:**
 
