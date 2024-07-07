@@ -34,56 +34,21 @@ Clone the repository:
 bash <(curl -Ls https://github.com/dev-ir/Gost-ip6/raw/main/Gost.sh)
    ```
 
-Custom Version: 
-
-```bash
-bash <(curl -Ls https://github.com/dev-ir/Gost-ip6/raw/v2.1.7/Gost.sh)
-   ```
-
-Follow the on-screen prompts to configure Gost tunnels according to your preferences.
-
-
-## Project Tutorial
-
-[![YouTube Tutorial](https://img.youtube.com/vi/LJYVWH8GyKM/0.jpg)](https://youtu.be/LJYVWH8GyKM)
-
----
-
-[![YouTube Tutorial](https://img.youtube.com/vi/Qlz61mlkQ5A/0.jpg)](https://youtu.be/Qlz61mlkQ5A)
-
-
-**Options:**
-
-The script offers the following options:
-
-- Gost Tunnel By IP4
-- Gost Tunnel By IP6
-- Gost Status
-- Update Script 
-- Add New IP
-- Change Gost Version
-- Auto Restart Gost
-- Auto Clear Cashe
-- Install BBR
-- Uninstall
-- Exit
-
-
-**Important Notes for Configuration:**
-
-- Run Script Again By "gost" Command
-- Avoid using duplicate ports.
-- Choose port ranges between 54 and 65000 for optimal configuration.
-- Your suggestions for script improvement and enhancement are highly welcomed. Feel free to share your ideas on the [GitHub repository](https://github.com/dev-ir/Gost-ip6/issues).
-
-
-**Credits:**
-
-- Created By Masoud Gb
-- Special Thanks to Hamid Router
-
-## Version
-
 Gost IP6 Script v2.2.0
 
 ---
+## Languages
+
+- English
+
+## 🪚 Preview
+<p align="left">
+    <img width="100%" src="https://github.com/dev-ir/Gost-ip6/assets/114811214/8886c7e6-12e4-4ccf-ba4c-2d799b9fdf44" alt="Image">
+</p>
+
+## 🙏 Support with Crypto 
+- USDT (TRC20): `TVUqVMoCEe5DVUoxmPg8MwmgcHvZLqLjr4`
+
+## 📧 Join Telegram Channel
+
+TG : https://t.me/+EpErnDsDPhw3ZThk
