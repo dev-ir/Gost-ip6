@@ -1,11 +1,52 @@
 #!/bin/bash
 
+#add color for text
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+plain='\033[0m'
+NC='\033[0m' # No Color
+
 # Check if the user has root access
 if [ "$EUID" -ne 0 ]; then
   echo $'\e[32mPlease run with root privileges.\e[0m'
   exit
 fi
 
+
+install_jq() {
+    if ! command -v jq &> /dev/null; then
+        # Check if the system is using apt package manager
+        if command -v apt-get &> /dev/null; then
+            echo -e "${RED}jq is not installed. Installing...${NC}"
+            sleep 1
+            sudo apt-get update
+            sudo apt-get install -y jq
+        else
+            echo -e "${RED}Error: Unsupported package manager. Please install jq manually.${NC}\n"
+            read -p "Press any key to continue..."
+            exit 1
+        fi
+    fi
+}
+
+    install_jq
+
+    echo "+---------------------------------------------------------------------------------------+"
+    echo "|   _____   ____    _____  _______   _______  _    _  _   _  _   _  ______  _           |"
+    echo "|  / ____| / __ \  / ____||__   __| |__   __|| |  | || \ | || \ | ||  ____|| |          |"
+    echo "| | |  __ | |  | || (___     | |       | |   | |  | ||  \| ||  \| || |__   | |          |"
+    echo "| | | |_ || |  | | \___ \    | |       | |   | |  | || .   || .   ||  __|  | |          |"
+    echo "| | |__| || |__| | ____) |   | |       | |   | |__| || |\  || |\  || |____ | |____      |"
+    echo "|  \_____| \____/ |_____/    |_|       |_|    \____/ |_| \_||_| \_||______||______|     |"                                                                               
+    echo "+---------------------------------------------------------------------------------------+"                                                                                                         
+    echo -e "|${GREEN}Server Country    |${NC} $SERVER_COUNTRY"
+    echo -e "|${GREEN}Server IP         |${NC} $SERVER_IP"
+    echo -e "|${GREEN}Server ISP        |${NC} $SERVER_ISP"
+    echo -e "|${GREEN}Server XUI        |${NC} $GV_CORE"
+    echo "+--------------------------------------------------------------------------------------+"
+    echo -e "|${YELLOW}Please choose an option:${NC}"
+    echo "+--------------------------------------------------------------------------------------+"
 echo $'\e[35m'"Gost Ip6 Script v2.2.0"$'\e[0m'
 
 options=($'\e[36m1. \e[0mGost Tunnel By IP4'
@@ -19,10 +60,8 @@ options=($'\e[36m1. \e[0mGost Tunnel By IP4'
          $'\e[36m9. \e[0mInstall BBR'
          $'\e[36m10. \e[0mUninstall'
          $'\e[36m11. \e[0mExit')
-
-# Print prompt and options with cyan color
-printf "\e[32mPlease Choice Your Options:\e[0m\n"
 printf "%s\n" "${options[@]}"
+echo "+--------------------------------------------------------------------------------------+"
 
 # Read user input with white color
 read -p $'\e[97mYour choice: \e[0m' choice
