@@ -22,20 +22,20 @@ fi
     echo "|  \_____| \____/ |_____/    |_|       |_|    \____/ |_| \_||_| \_||______||______|     |"                                                                               
     echo "+---------------------------------------------------------------------------------------+"
     echo -e "|${YELLOW}Please choose an option:${NC}"
-    echo "+--------------------------------------------------------------------------------------+"
-options=($'\e[36m1. \e[0m|Gost Tunnel By IP4'
-         $'\e[36m2. \e[0m|Gost Tunnel By IP6'
-         $'\e[36m3. \e[0m|Gost Status'
-         $'\e[36m4. \e[0m|Update Script'
-         $'\e[36m5. \e[0m|Add New IP'
-         $'\e[36m6. \e[0m|Change Gost Version'
-         $'\e[36m7. \e[0m|Auto Restart Gost'
-         $'\e[36m8. \e[0m|Auto Clear Cache'
-         $'\e[36m9. \e[0m|Install BBR'
+    echo "+---------------------------------------------------------------------------------------+"
+options=($'\e[36m1. \e[0m |Gost Tunnel By IP4'
+         $'\e[36m2. \e[0m |Gost Tunnel By IP6'
+         $'\e[36m3. \e[0m |Gost Status'
+         $'\e[36m4. \e[0m |Update Script'
+         $'\e[36m5. \e[0m |Add New IP'
+         $'\e[36m6. \e[0m |Change Gost Version'
+         $'\e[36m7. \e[0m |Auto Restart Gost'
+         $'\e[36m8. \e[0m |Auto Clear Cache'
+         $'\e[36m9. \e[0m |Install BBR'
          $'\e[36m10. \e[0m|Uninstall'
          $'\e[36m11. \e[0m|Exit')
 printf "%s\n" "${options[@]}"
-echo "+--------------------------------------------------------------------------------------+"
+echo "+---------------------------------------------------------------------------------------+"
 
 # Read user input with white color
 read -p $'\e[97mYour choice: \e[0m' choice
