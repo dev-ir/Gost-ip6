@@ -23,17 +23,17 @@ fi
     echo "+---------------------------------------------------------------------------------------+"
     echo -e "|${YELLOW}Please choose an option:${NC}"
     echo "+--------------------------------------------------------------------------------------+"
-options=($'\e[36m1. \e[0mGost Tunnel By IP4'
-         $'\e[36m2. \e[0mGost Tunnel By IP6'
-         $'\e[36m3. \e[0mGost Status'
-         $'\e[36m4. \e[0mUpdate Script'
-         $'\e[36m5. \e[0mAdd New IP'
-         $'\e[36m6. \e[0mChange Gost Version'
-         $'\e[36m7. \e[0mAuto Restart Gost'
-         $'\e[36m8. \e[0mAuto Clear Cache'
-         $'\e[36m9. \e[0mInstall BBR'
-         $'\e[36m10. \e[0mUninstall'
-         $'\e[36m11. \e[0mExit')
+options=($'\e[36m1. \e[0m|Gost Tunnel By IP4'
+         $'\e[36m2. \e[0m|Gost Tunnel By IP6'
+         $'\e[36m3. \e[0m|Gost Status'
+         $'\e[36m4. \e[0m|Update Script'
+         $'\e[36m5. \e[0m|Add New IP'
+         $'\e[36m6. \e[0m|Change Gost Version'
+         $'\e[36m7. \e[0m|Auto Restart Gost'
+         $'\e[36m8. \e[0m|Auto Clear Cache'
+         $'\e[36m9. \e[0m|Install BBR'
+         $'\e[36m10. \e[0m|Uninstall'
+         $'\e[36m11. \e[0m|Exit')
 printf "%s\n" "${options[@]}"
 echo "+--------------------------------------------------------------------------------------+"
 
