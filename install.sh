@@ -6,13 +6,6 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
-echo $'\e[35m'"  ___|              |        _ _|  _ \   /    
- |      _ \    __|  __|        |  |   |  _ \  
- |   | (   | \__ \  |          |  ___/  (   | 
-\____|\___/  ____/ \__|      ___|_|    \___/  
-                                              "$'\e[0m'
-
-echo -e "\e[36mCreated By Masoud Gb Special Thanks Hamid Router\e[0m"
 echo $'\e[35m'"Gost Ip6 Script v2.2.0"$'\e[0m'
 
 options=($'\e[36m1. \e[0mGost Tunnel By IP4'
@@ -233,7 +226,7 @@ elif [ "$choice" -eq 4 ]; then
         echo $'\e[32mUpdating Gost, please wait...\e[0m'
         # Save install.sh in /etc/gost directory
         sudo mkdir -p /etc/gost
-wget -O /etc/gost/install.sh https://github.com/masoudgb/Gost-ip6/raw/main/install.sh
+wget -O /etc/gost/install.sh https://raw.githubusercontent.com/dev-ir/Gost-ip6/main/install.sh
 chmod +x /etc/gost/install.sh
         echo $'\e[32mUpdate completed.\e[0m'
     else
