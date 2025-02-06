@@ -5,31 +5,30 @@ if [ "$EUID" -ne 0 ]; then
   echo $'\e[32mPlease run with root privileges.\e[0m'
   exit
 fi
-
-echo $'\e[35m'"  ___|              |        _ _|  _ \   /    
- |      _ \    __|  __|        |  |   |  _ \  
- |   | (   | \__ \  |          |  ___/  (   | 
-\____|\___/  ____/ \__|      ___|_|    \___/  
-                                              "$'\e[0m'
-
-echo -e "\e[36mCreated By Masoud Gb Special Thanks Hamid Router\e[0m"
-echo $'\e[35m'"Gost Ip6 Script v2.2.0"$'\e[0m'
-
-options=($'\e[36m1. \e[0mGost Tunnel By IP4'
-         $'\e[36m2. \e[0mGost Tunnel By IP6'
-         $'\e[36m3. \e[0mGost Status'
-         $'\e[36m4. \e[0mUpdate Script'
-         $'\e[36m5. \e[0mAdd New IP'
-         $'\e[36m6. \e[0mChange Gost Version'
-         $'\e[36m7. \e[0mAuto Restart Gost'
-         $'\e[36m8. \e[0mAuto Clear Cache'
-         $'\e[36m9. \e[0mInstall BBR'
-         $'\e[36m10. \e[0mUninstall'
-         $'\e[36m11. \e[0mExit')
-
-# Print prompt and options with cyan color
-printf "\e[32mPlease Choice Your Options:\e[0m\n"
+    clear
+    echo "+---------------------------------------------------------------------------------------+"
+    echo "|   _____   ____    _____  _______   _______  _    _  _   _  _   _  ______  _           |"
+    echo "|  / ____| / __ \  / ____||__   __| |__   __|| |  | || \ | || \ | ||  ____|| |          |"
+    echo "| | |  __ | |  | || (___     | |       | |   | |  | ||  \| ||  \| || |__   | |          |"
+    echo "| | | |_ || |  | | \___ \    | |       | |   | |  | || .   || .   ||  __|  | |          |"
+    echo "| | |__| || |__| | ____) |   | |       | |   | |__| || |\  || |\  || |____ | |____      |"
+    echo "|  \_____| \____/ |_____/    |_|       |_|    \____/ |_| \_||_| \_||______||______|     |"                                                                               
+    echo "+---------------------------------------------------------------------------------------+"
+    echo -e "|${YELLOW}Please choose an option:${NC}"
+    echo "+---------------------------------------------------------------------------------------+"
+options=($'\e[36m1. \e[0m |Gost Tunnel By IP4'
+         $'\e[36m2. \e[0m |Gost Tunnel By IP6'
+         $'\e[36m3. \e[0m |Gost Status'
+         $'\e[36m4. \e[0m |Update Script'
+         $'\e[36m5. \e[0m |Add New IP'
+         $'\e[36m6. \e[0m |Change Gost Version'
+         $'\e[36m7. \e[0m |Auto Restart Gost'
+         $'\e[36m8. \e[0m |Auto Clear Cache'
+         $'\e[36m9. \e[0m |Install BBR'
+         $'\e[36m10. \e[0m|Uninstall'
+         $'\e[36m11. \e[0m|Exit')
 printf "%s\n" "${options[@]}"
+echo "+---------------------------------------------------------------------------------------+"
 
 # Read user input with white color
 read -p $'\e[97mYour choice: \e[0m' choice
