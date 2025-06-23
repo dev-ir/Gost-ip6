@@ -114,54 +114,59 @@ systemctl enable sysctl-custom
     # Read user input for Gost version
     read -p $'\e[97mYour choice: \e[0m' gost_version_choice
 
-# Download and install Gost based on user's choice
-if [ "$gost_version_choice" -eq 1 ]; then
-    echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m' && \
-    wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
-    echo $'\e[32mGost downloaded successfully.\e[0m' && \
-    gunzip gost-linux-amd64-2.11.5.gz && \
-    sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost && \
-    sudo chmod +x /usr/local/bin/gost && \
-    echo $'\e[32mGost installed successfully.\e[0m'
+# Download and install Gost based on user's choice if not already installed
+GOST_BINARY="/usr/local/bin/gost"
+if [ -f "$GOST_BINARY" ]; then
+    echo $'\e[32mGost binary already exists. Skipping download.\e[0m'
 else
-    if [ "$gost_version_choice" -eq 2 ]; then
-        echo $'\e[32mInstalling the latest Gost version 3.x, please wait...\e[0m'
-        
-        # Fetch the download URL for the latest 3.x version of Gost
-        download_url=$(curl -s https://api.github.com/repos/go-gost/gost/releases | \
-                       grep -oP '"browser_download_url": "\K(.*?linux.*?\.tar\.gz)(?=")' | \
-                       grep -E 'v3\.' | \
-                       head -n 1)
-        
-        # Check if a valid URL was fetched
-        if [ -z "$download_url" ]; then
-            echo $'\e[31mError: Could not find the download URL for the latest 3.x Gost version.\e[0m'
-            exit 1
-        fi
-
-        # Download the file to /tmp and check if it was downloaded correctly
-        echo $'\e[32mDownloading the latest version of Gost 3.x...\e[0m'
-        wget -O /tmp/gost.tar.gz "$download_url"
-        
-        # Check if the file was downloaded successfully
-        if [ ! -f /tmp/gost.tar.gz ]; then
-            echo $'\e[31mError: Download failed. The file was not saved correctly.\e[0m'
-            exit 1
-        fi
-
-        # Check if the file is not empty
-        if [ ! -s /tmp/gost.tar.gz ]; then
-            echo $'\e[31mError: The downloaded file is empty.\e[0m'
-            exit 1
-        fi
-
-        # Extract the downloaded file
-        tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
-        chmod +x /usr/local/bin/gost
-        echo $'\e[32mGost 3.x installed successfully.\e[0m'
+    if [ "$gost_version_choice" -eq 1 ]; then
+        echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m' && \
+        wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
+        echo $'\e[32mGost downloaded successfully.\e[0m' && \
+        gunzip gost-linux-amd64-2.11.5.gz && \
+        sudo mv gost-linux-amd64-2.11.5 "$GOST_BINARY" && \
+        sudo chmod +x "$GOST_BINARY" && \
+        echo $'\e[32mGost installed successfully.\e[0m'
     else
-        echo $'\e[31mInvalid choice. Exiting...\e[0m'
-        exit
+        if [ "$gost_version_choice" -eq 2 ]; then
+            echo $'\e[32mInstalling the latest Gost version 3.x, please wait...\e[0m'
+
+            # Fetch the download URL for the latest 3.x version of Gost
+            download_url=$(curl -s https://api.github.com/repos/go-gost/gost/releases | \
+                           grep -oP '"browser_download_url": "\K(.*?linux.*?\.tar\.gz)(?=")' | \
+                           grep -E 'v3\.' | \
+                           head -n 1)
+
+            # Check if a valid URL was fetched
+            if [ -z "$download_url" ]; then
+                echo $'\e[31mError: Could not find the download URL for the latest 3.x Gost version.\e[0m'
+                exit 1
+            fi
+
+            # Download the file to /tmp and check if it was downloaded correctly
+            echo $'\e[32mDownloading the latest version of Gost 3.x...\e[0m'
+            wget -O /tmp/gost.tar.gz "$download_url"
+
+            # Check if the file was downloaded successfully
+            if [ ! -f /tmp/gost.tar.gz ]; then
+                echo $'\e[31mError: Download failed. The file was not saved correctly.\e[0m'
+                exit 1
+            fi
+
+            # Check if the file is not empty
+            if [ ! -s /tmp/gost.tar.gz ]; then
+                echo $'\e[31mError: The downloaded file is empty.\e[0m'
+                exit 1
+            fi
+
+            # Extract the downloaded file
+            tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/
+            chmod +x "$GOST_BINARY"
+            echo $'\e[32mGost 3.x installed successfully.\e[0m'
+        else
+            echo $'\e[31mInvalid choice. Exiting...\e[0m'
+            exit
+        fi
     fi
 fi
 
@@ -352,58 +357,63 @@ elif [ "$choice" -eq 6 ]; then
     # Read user input for Gost version choice
     read -p $'\e[97mYour choice: \e[0m' gost_version_choice
 
-    # Download and install Gost based on user's choice
-    case "$gost_version_choice" in
-        1)
-            echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m' && \
-            wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
-            echo $'\e[32mGost downloaded successfully.\e[0m' && \
-            gunzip gost-linux-amd64-2.11.5.gz && \
-            sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost && \
-            sudo chmod +x /usr/local/bin/gost && \
-            echo $'\e[32mGost installed successfully.\e[0m'
-            ;;
-        2)
-            echo $'\e[32mInstalling the latest Gost version 3.x, please wait...\e[0m' && \
+    # Download and install Gost based on user's choice if not already installed
+    GOST_BINARY="/usr/local/bin/gost"
+    if [ -f "$GOST_BINARY" ]; then
+        echo $'\e[32mGost binary already exists. Skipping download.\e[0m'
+    else
+        case "$gost_version_choice" in
+            1)
+                echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m' && \
+                wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
+                echo $'\e[32mGost downloaded successfully.\e[0m' && \
+                gunzip gost-linux-amd64-2.11.5.gz && \
+                sudo mv gost-linux-amd64-2.11.5 "$GOST_BINARY" && \
+                sudo chmod +x "$GOST_BINARY" && \
+                echo $'\e[32mGost installed successfully.\e[0m'
+                ;;
+            2)
+                echo $'\e[32mInstalling the latest Gost version 3.x, please wait...\e[0m' && \
             
-            # Fetch the download URL for the latest 3.x version of Gost
-            download_url=$(curl -s https://api.github.com/repos/go-gost/gost/releases | \
-                           grep -oP '"browser_download_url": "\K(.*?linux.*?\.tar\.gz)(?=")' | \
-                           grep -E 'v3\.' | \
-                           head -n 1)
+                # Fetch the download URL for the latest 3.x version of Gost
+                download_url=$(curl -s https://api.github.com/repos/go-gost/gost/releases | \
+                               grep -oP '"browser_download_url": "\K(.*?linux.*?\.tar\.gz)(?=")' | \
+                               grep -E 'v3\.' | \
+                               head -n 1)
             
-            # Check if a valid URL was fetched
-            if [ -z "$download_url" ]; then
-                echo $'\e[31mError: Could not find the download URL for the latest 3.x Gost version.\e[0m'
-                exit 1
-            fi
+                # Check if a valid URL was fetched
+                if [ -z "$download_url" ]; then
+                    echo $'\e[31mError: Could not find the download URL for the latest 3.x Gost version.\e[0m'
+                    exit 1
+                fi
 
-            # Download the file to /tmp and check if it was downloaded correctly
-            echo $'\e[32mDownloading the latest version of Gost 3.x...\e[0m'
-            wget -O /tmp/gost.tar.gz "$download_url"
+                # Download the file to /tmp and check if it was downloaded correctly
+                echo $'\e[32mDownloading the latest version of Gost 3.x...\e[0m'
+                wget -O /tmp/gost.tar.gz "$download_url"
             
-            # Check if the file was downloaded successfully
-            if [ ! -f /tmp/gost.tar.gz ]; then
-                echo $'\e[31mError: Download failed. The file was not saved correctly.\e[0m'
-                exit 1
-            fi
+                # Check if the file was downloaded successfully
+                if [ ! -f /tmp/gost.tar.gz ]; then
+                    echo $'\e[31mError: Download failed. The file was not saved correctly.\e[0m'
+                    exit 1
+                fi
 
-            # Check if the file is not empty
-            if [ ! -s /tmp/gost.tar.gz ]; then
-                echo $'\e[31mError: The downloaded file is empty.\e[0m'
-                exit 1
-            fi
+                # Check if the file is not empty
+                if [ ! -s /tmp/gost.tar.gz ]; then
+                    echo $'\e[31mError: The downloaded file is empty.\e[0m'
+                    exit 1
+                fi
 
-            # Extract the downloaded file
-            tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/ && \
-            chmod +x /usr/local/bin/gost && \
-            echo $'\e[32mGost 3.x installed successfully.\e[0m'
-            ;;
-        *)
-            echo $'\e[31mInvalid choice. Exiting...\e[0m'
-            exit
-            ;;
-    esac
+                # Extract the downloaded file
+                tar -xvzf /tmp/gost.tar.gz -C /usr/local/bin/ && \
+                chmod +x "$GOST_BINARY" && \
+                echo $'\e[32mGost 3.x installed successfully.\e[0m'
+                ;;
+            *)
+                echo $'\e[31mInvalid choice. Exiting...\e[0m'
+                exit
+                ;;
+        esac
+    fi
     bash "$0"
     
 # If option 7 is selected
