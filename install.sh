@@ -116,10 +116,19 @@ systemctl enable sysctl-custom
 
 # Download and install Gost based on user's choice
 if [ "$gost_version_choice" -eq 1 ]; then
-    echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m' && \
-    wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz && \
-    echo $'\e[32mGost downloaded successfully.\e[0m' && \
-    gunzip gost-linux-amd64-2.11.5.gz && \
+    echo $'\e[32mInstalling Gost version 2.11.5, please wait...\e[0m'
+    
+    if [ -f "gost-linux-amd64-2.11.5.gz" ]; then
+        echo $'\e[33mFile already exists. Skipping download...\e[0m'
+    else
+        wget https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz || {
+            echo $'\e[31mDownload failed.\e[0m'
+            exit 1
+        }
+        echo $'\e[32mGost downloaded successfully.\e[0m'
+    fi
+
+    gunzip -f gost-linux-amd64-2.11.5.gz && \
     sudo mv gost-linux-amd64-2.11.5 /usr/local/bin/gost && \
     sudo chmod +x /usr/local/bin/gost && \
     echo $'\e[32mGost installed successfully.\e[0m'
