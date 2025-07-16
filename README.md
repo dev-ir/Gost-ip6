@@ -35,16 +35,6 @@ bash <(curl -Ls https://github.com/masoudgb/Gost-ip6/raw/v2.1.7/Gost.sh)
 
 Follow the on-screen prompts to configure Gost tunnels according to your preferences.
 
-
-## Project Tutorial
-
-[![YouTube Tutorial](https://img.youtube.com/vi/LJYVWH8GyKM/0.jpg)](https://youtu.be/LJYVWH8GyKM)
-
----
-
-[![YouTube Tutorial](https://img.youtube.com/vi/Qlz61mlkQ5A/0.jpg)](https://youtu.be/Qlz61mlkQ5A)
-
-
 **Options:**
 
 The script offers the following options:
